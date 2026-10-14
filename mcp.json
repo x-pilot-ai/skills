@@ -3,17 +3,7 @@
   "mcpServers": {
     "x-pilot": {
       "type": "streamable-http",
-      "url": "https://mcp.x-pilot.ai/mcp",
-      "extensions": {
-        "com.openai": {
-          "auth": {
-            "type": "oauth",
-            "client": {
-              "mode": "dcr"
-            }
-          }
-        }
-      }
+      "url": "https://mcp.x-pilot.ai/mcp"
     }
   }
 }

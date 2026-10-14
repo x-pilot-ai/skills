@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "x-pilot",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Create course and explainer videos, digital humans and narration with X Pilot.",
   "author": {
     "name": "X Pilot",
@@ -92,7 +92,7 @@
         "commerce_description": "Video and audio generation can consume credits already held in the connected X Pilot account. The plugin does not sell products or perform checkout inside ChatGPT or Codex."
       },
       "publication": {
-        "release_notes": "Explicit OAuth authentication and dynamic client registration for the X Pilot remote MCP connection; retains the course-video, narration and digital-human skills."
+        "release_notes": "Restores the X Pilot remote MCP connection in Codex Desktop; OAuth with dynamic client registration is discovered from the server. Retains the course-video, narration and digital-human skills."
       }
     }
   }
