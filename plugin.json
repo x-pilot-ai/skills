@@ -1,0 +1,40 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "x-pilot",
+  "version": "1.0.1",
+  "description": "Create course and explainer videos, digital humans and narration with X Pilot.",
+  "author": {
+    "name": "X Pilot",
+    "url": "https://x-pilot.ai"
+  },
+  "homepage": "https://x-pilot.ai/developers",
+  "keywords": [
+    "video",
+    "course",
+    "education",
+    "avatar",
+    "tts",
+    "mcp"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "X Pilot",
+        "shortDescription": "Course videos from any topic",
+        "longDescription": "Plan, generate and revise educational and explainer videos, create digital human presenters and produce narration with X Pilot. Connect once with OAuth; usage is billed to your X Pilot credits.",
+        "developerName": "X Pilot",
+        "category": "Education & Research",
+        "websiteURL": "https://www.x-pilot.ai",
+        "privacyPolicyURL": "https://www.x-pilot.ai/privacy",
+        "termsOfServiceURL": "https://www.x-pilot.ai/terms",
+        "defaultPrompt": [
+          "Use X Pilot to make a 3-minute explainer video about how rainbows form.",
+          "Use X Pilot to turn this PDF into a short course video."
+        ],
+        "brandColor": "#111111",
+        "composerIcon": "./assets/icon.png",
+        "logo": "./assets/icon.png"
+      }
+    }
+  }
+}
