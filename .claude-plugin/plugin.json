@@ -1,0 +1,14 @@
+{
+  "name": "x-pilot",
+  "displayName": "X Pilot",
+  "version": "1.0.2",
+  "description": "Create course and explainer videos, digital humans and narration with X Pilot.",
+  "author": {
+    "name": "X Pilot",
+    "email": "support@x-pilot.ai",
+    "url": "https://www.x-pilot.ai"
+  },
+  "homepage": "https://app.x-pilot.ai/developers",
+  "repository": "https://github.com/x-pilot-ai/skills",
+  "skills": "./skills/"
+}

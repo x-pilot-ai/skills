@@ -13,13 +13,20 @@ avatars and narration. Each skill calls the X Pilot API or the remote MCP server
 
 ```bash
 # Any agent (Cursor, Claude Code, Codex and 40+ others); add -g for a user-level install
-npx skills add xiaolizi000000-afk/skills --skill xpilot-course-video --agent cursor
+npx skills add x-pilot-ai/skills --skill xpilot-course-video --agent cursor
 
 # GitHub CLI v2.90+
-gh skill install xiaolizi000000-afk/skills xpilot-course-video
+gh skill install x-pilot-ai/skills xpilot-course-video
 ```
 
 Agent ids: `cursor`, `claude-code`, `codex`. Use `--skill '*'` for all skills.
+
+Claude Code can also install the full plugin (all Skills plus MCP):
+
+```text
+/plugin marketplace add x-pilot-ai/skills
+/plugin install x-pilot@x-pilot-skills
+```
 
 ## Connect
 
@@ -27,4 +34,6 @@ Add the MCP server `https://mcp.x-pilot.ai/mcp` to your agent and sign in with y
 or set `XPILOT_API_KEY` from the [developer console](https://app.x-pilot.ai/developers).
 Usage is billed to your X Pilot credits.
 
-[Privacy policy](https://www.x-pilot.ai/privacy) · [Terms of service](https://www.x-pilot.ai/terms)
+[Documentation](https://app.x-pilot.ai/developers) · [Support](https://www.x-pilot.ai/support) ·
+[Privacy policy](https://www.x-pilot.ai/privacy) · [Terms of service](https://www.x-pilot.ai/terms) ·
+[License](./LICENSE)

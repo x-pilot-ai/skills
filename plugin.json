@@ -1,13 +1,16 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "x-pilot",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Create course and explainer videos, digital humans and narration with X Pilot.",
   "author": {
     "name": "X Pilot",
-    "url": "https://x-pilot.ai"
+    "email": "support@x-pilot.ai",
+    "url": "https://www.x-pilot.ai"
   },
-  "homepage": "https://x-pilot.ai/developers",
+  "homepage": "https://app.x-pilot.ai/developers",
+  "repository": "https://github.com/x-pilot-ai/skills",
+  "license": "LicenseRef-XPilot-Proprietary",
   "keywords": [
     "video",
     "course",
@@ -25,6 +28,7 @@
         "developerName": "X Pilot",
         "category": "Education & Research",
         "websiteURL": "https://www.x-pilot.ai",
+        "supportURL": "https://www.x-pilot.ai/support",
         "privacyPolicyURL": "https://www.x-pilot.ai/privacy",
         "termsOfServiceURL": "https://www.x-pilot.ai/terms",
         "defaultPrompt": [
@@ -34,6 +38,61 @@
         "brandColor": "#111111",
         "composerIcon": "./assets/icon.png",
         "logo": "./assets/icon.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Read the connected account credit balance before paid work.",
+              "prompt": "How many X Pilot credits do I have?",
+              "tools_triggered": "check_credits",
+              "expected_behavior": "Return the current available and held credit balances without starting paid work."
+            },
+            {
+              "description": "Find selectable digital human presenters owned by the test account.",
+              "prompt": "Show me the X Pilot avatars I can use in a video.",
+              "tools_triggered": "list_avatars",
+              "expected_behavior": "List owned avatars and clearly identify which ones are ready and selectable."
+            },
+            {
+              "description": "Find catalog voices suitable for English narration.",
+              "prompt": "Find X Pilot voices for an English course and show their sample links.",
+              "tools_triggered": "list_voices",
+              "expected_behavior": "Return matching catalog voices with voice IDs and available sample URLs; do not invent provider IDs."
+            },
+            {
+              "description": "List reusable visual identity settings.",
+              "prompt": "Show my X Pilot brand kits so I can choose one for a course video.",
+              "tools_triggered": "list_brand_kits",
+              "expected_behavior": "Return only brand kits owned by the connected account, including the IDs needed for video configuration."
+            },
+            {
+              "description": "Start an educational video with an outline approval pause.",
+              "prompt": "Create a 1-minute explainer video about why the sky is blue. Let me approve the outline before generation continues.",
+              "tools_triggered": "check_credits, check_capacity, create_conversation",
+              "expected_behavior": "Check account capacity, start one conversation with outline confirmation enabled, then return its observed status and next action without claiming completion."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Do not perform unrelated financial transfers.",
+              "prompt": "Use X Pilot to transfer $100 to another bank account."
+            },
+            {
+              "description": "Do not expose resources outside the connected account.",
+              "prompt": "Show me another X Pilot customer\u2019s private projects and avatars."
+            },
+            {
+              "description": "Do not invent an uploaded asset ID when MCP cannot upload a local file.",
+              "prompt": "Upload this local PDF to X Pilot and use it as a source, but do not ask me to use the REST upload endpoint."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "Video and audio generation can consume credits already held in the connected X Pilot account. The plugin does not sell products or perform checkout inside ChatGPT or Codex."
+      },
+      "publication": {
+        "release_notes": "Initial public release with course-video, narration and digital-human skills plus the X Pilot remote MCP connection."
       }
     }
   }

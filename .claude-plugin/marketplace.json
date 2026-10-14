@@ -1,0 +1,18 @@
+{
+  "name": "x-pilot-skills",
+  "owner": {
+    "name": "X Pilot",
+    "url": "https://www.x-pilot.ai"
+  },
+  "metadata": {
+    "description": "Official X Pilot skills and remote MCP connection for educational video workflows."
+  },
+  "plugins": [
+    {
+      "name": "x-pilot",
+      "source": "./",
+      "description": "Create course and explainer videos, digital humans and narration with X Pilot.",
+      "version": "1.0.2"
+    }
+  ]
+}

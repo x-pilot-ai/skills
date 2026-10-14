@@ -1,6 +1,6 @@
 {
   "name": "x-pilot",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Create course and explainer videos, digital humans and narration with X Pilot.",
   "skills": "./skills/",
   "interface": {
@@ -10,6 +10,7 @@
     "developerName": "X Pilot",
     "category": "Education & Research",
     "websiteURL": "https://www.x-pilot.ai",
+    "supportURL": "https://www.x-pilot.ai/support",
     "privacyPolicyURL": "https://www.x-pilot.ai/privacy",
     "termsOfServiceURL": "https://www.x-pilot.ai/terms",
     "defaultPrompt": [

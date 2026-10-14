@@ -1,0 +1,27 @@
+{
+  "name": "x-pilot",
+  "version": "1.0.2",
+  "description": "Create course and explainer videos, digital humans and narration with X Pilot.",
+  "author": {
+    "name": "X Pilot",
+    "email": "support@x-pilot.ai"
+  },
+  "homepage": "https://app.x-pilot.ai/developers",
+  "repository": "https://github.com/x-pilot-ai/skills",
+  "license": "LicenseRef-XPilot-Proprietary",
+  "keywords": [
+    "video",
+    "course",
+    "education",
+    "avatar",
+    "tts",
+    "mcp"
+  ],
+  "logo": "assets/icon.png",
+  "skills": "./skills/",
+  "mcpServers": {
+    "x-pilot": {
+      "url": "https://mcp.x-pilot.ai/mcp"
+    }
+  }
+}
