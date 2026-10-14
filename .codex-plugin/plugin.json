@@ -1,6 +1,6 @@
 {
   "name": "x-pilot",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Create course and explainer videos, digital humans and narration with X Pilot.",
   "skills": "./skills/",
   "interface": {
