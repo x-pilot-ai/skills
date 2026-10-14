@@ -20,13 +20,17 @@ Upload with REST multipart `POST /v1/assets`, form field `files`, repeated for s
 ```json
 {
   "prompt": "Turn the uploaded spec into a 3-minute overview for sales.",
-  "files": [{ "asset_id": "<id>" }],
-  "files_role": "primary",
+  "files": [
+    {
+      "url": "https://cdn.example.com/product-spec.pdf",
+      "files_role": "primary"
+    }
+  ],
   "video_config": { "target_language": "en", "video_duration": "short" }
 }
 ```
 
-- Each item needs `asset_id` or the `url` returned by `/v1/assets`. `name` and `type` (`document`, `image`, `video`) are optional; type is inferred.
-- URLs that `/v1/assets` did not return are rejected with 404 `source_not_found`. Never invent or guess URLs.
-- `files_role`: `primary` builds the outline and visuals from the files; `reference` uses them only as background. Omit it to let the agent decide.
+- Each item needs an owned `asset_id` or a public http(s) `url` supplied by the user. Third-party URLs are downloaded and archived to the user's storage before use. `name` and `type` (`document`, `image`, `video`) are optional; type is inferred.
+- Put `files_role` in each item: `primary` builds the outline and visuals from that file; `reference` uses that file only as background. Omit it on an item to let the agent decide.
+- Never invent or guess URLs, and do not use private-network URLs.
 - Files can also be attached to a follow-up `send_message`.

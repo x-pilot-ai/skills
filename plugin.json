@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "x-pilot",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Create course and explainer videos, digital humans and narration with X Pilot.",
   "author": {
     "name": "X Pilot",

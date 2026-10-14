@@ -109,7 +109,7 @@ Customers report saving 70% of reporting time.
 Start a 14-day free trial.
 ```
 
-Upload 2–5 real product screenshots and pass them with `files_role: "primary"`.
+Attach 2–5 real product screenshots and set `files_role: "primary"` inside each `files` item.
 
 ### Story
 
@@ -140,7 +140,7 @@ Focus on the conclusions and data in chapters 2 and 3; skip the appendix.
 Keep the original formulas and figures; do not invent numbers.
 ```
 
-Upload the pdf, pptx or docx (≤10 MB each, max 5) and pass `files_role: "primary"`.
+Attach the pdf, pptx or docx (≤10 MB each, max 5) and set `files_role: "primary"` inside that `files` item.
 
 ## Editing a finished video
 

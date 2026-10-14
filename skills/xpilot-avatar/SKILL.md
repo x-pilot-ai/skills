@@ -7,8 +7,8 @@ Use connected MCP first. For REST read [references/api.md](references/api.md). I
 
 ## Source rules
 
-- Prefer a file in the user's own account: find it with `list_assets` or upload it with REST multipart `POST /v1/assets` (images ≤10 MB, video ≤60 MB), then pass its `asset_id`.
-- Use `image_url` / `video_url` only when the user gives you that http(s) link themselves. Never search for, guess or invent a source URL, and never use a link to someone else's likeness without the user saying they have the right to use it.
+- Use a file in the user's own account: find it with `list_assets` or upload it with REST multipart `POST /v1/assets` (images ≤10 MB, video ≤60 MB), then pass its `asset_id`.
+- `image_url` / `video_url` may be a public http(s) URL supplied by the user. X Pilot downloads third-party content and archives it to that user's owned storage before training. Never search for, guess or invent a source URL, use private-network URLs, or use another person's likeness without authorization.
 
 ## Workflow
 

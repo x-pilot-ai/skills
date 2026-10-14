@@ -63,8 +63,12 @@ List endpoints return `{items, total, limit, offset}`.
     "brand_kit_id": "<brand_kit_id>",
     "enable_initial_ai_video": false
   },
-  "files": [{ "asset_id": "<asset_id>" }],
-  "files_role": "primary"
+  "files": [
+    {
+      "asset_id": "<asset_id>",
+      "files_role": "primary"
+    }
+  ]
 }
 ```
 
@@ -92,7 +96,7 @@ The response is 202 with `conversation_id`, `message_id`, `status` and `cost_cre
 
 ## Optional callback instead of polling
 
-Create and send also accept `callback_url` (public HTTPS on port 443, ≤2,048 characters) and `callback_id` (letters, digits, `_ . : -`, ≤128; requires `callback_url`). When that message ends, X Pilot POSTs `{id, type: "task.<status>", created_at, data}` where `data` matches the message fields plus `callback_id`. The request carries `X-XPilot-Signature: t=<unix>,v1=<hex>` = HMAC-SHA256(workspace callback secret, `t + "." + raw body`); the secret is in Developer console → Webhooks. Deliveries retry up to 6 times and every attempt is listed in the console. Private or http addresses return 400 `invalid_webhook_url` / `unsafe_webhook_url` with `param: "callback_url"`. A callback only covers the message started by that request — pass it again when confirming an outline. Only use a callback URL the user gave you; otherwise keep polling.
+Create and send also accept `callback_url` (public HTTPS on port 443, ≤2,048 characters) and `callback_id` (letters, digits, `_ . : -`, ≤128; requires `callback_url`). When that message ends, X Pilot POSTs `{id, type: "video-agent.<status>", created_at, data}` where `data` matches the message fields plus `callback_id`. The request carries `X-XPilot-Signature: t=<unix>,v1=<hex>` = HMAC-SHA256(workspace callback secret, `t + "." + raw body`); the secret is in Developer console → Webhooks. Deliveries retry up to 6 times and every attempt is listed in the console. Private or http addresses return 400 `invalid_webhook_url` / `unsafe_webhook_url` with `param: "callback_url"`. A callback only covers the message started by that request — pass it again when confirming an outline. Only use a callback URL the user gave you; otherwise keep polling.
 
 ## Poll messages
 
@@ -115,7 +119,7 @@ Conversation `status` and `next_action` follow its latest message. Poll at least
 | next_action = reply | `{"prompt": "<user's answer>"}` |
 | completed, user wants edits | `{"prompt": "Shorten scene 2", "files": [...]}` |
 
-`files` and `files_role` are also accepted on follow-ups.
+`files` is also accepted on follow-ups. Put `files_role` inside each file item.
 
 ## Renders
 

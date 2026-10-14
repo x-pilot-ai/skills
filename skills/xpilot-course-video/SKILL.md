@@ -36,9 +36,9 @@ Read [references/prompt-guide.md](references/prompt-guide.md) and pick the close
 
 Read [references/uploads.md](references/uploads.md).
 
-- Upload with REST multipart `POST /v1/assets` (field `files`, max 5 per request), then pass `files: [{"asset_id": "<id>"}]`. There is no MCP upload tool; use `list_assets` to find existing uploads.
-- Set `files_role: "primary"` when the video should be built from the files, `"reference"` when they are background only.
-- Never invent file URLs.
+- Each `files` item uses either an owned `asset_id` or a public http(s) `url` supplied by the user. X Pilot archives third-party URLs to the user's storage before generation. REST multipart `POST /v1/assets` remains available for direct uploads; there is no MCP upload tool.
+- Put `files_role` inside each item: `"primary"` when that file is main content/visual material, `"reference"` when it is background only. Omit it for that item when the agent should decide.
+- Never search for, guess or invent file URLs, and never use private-network URLs.
 
 ## 5. Outline mode
 
