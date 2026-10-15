@@ -53,7 +53,7 @@ Read [references/uploads.md](references/uploads.md).
 - Call `check_credits` and `check_capacity` first. Billing matches the X Pilot app: a reserve is held when the message starts (tell the user the `cost_credits` returned on create or send), released at the end, then actual usage is charged. Longer videos cost more; there is no per-message cap.
 - Generate one stable `idempotency_key` (UUID) per operation and reuse it only when retrying the exact same input.
 - Poll `list_messages` no faster than every 5 seconds and respect Retry-After. `status` is queued, running, stopping, paused, completed, failed or stopped; completed, paused, failed and stopped end that message. A timeout or disconnect is not completion.
-- Deliver only service URLs (`preview_video_url`), with conversation_id and message_id. A preview is not an MP4: call `create_render` (with its own `idempotency_key`) and poll `get_render` when the user needs a file.
+- Deliver only service URLs (`preview_video_url`), with conversation_id and message_id. A preview is not an MP4: call `create_render` (with its own `idempotency_key`) and poll `get_render` when the user needs a file. Report the returned `progress` (0–100) when present; if it is `null`, report the status without inventing a percentage.
 - To edit a finished video, `send_message` with a concrete instruction ("shorten scene 2, add a worked example").
 - Stop with `stop_conversation` only when the user asks; incurred cost may still be charged.
 

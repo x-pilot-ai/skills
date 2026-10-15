@@ -6,7 +6,7 @@ avatars and narration. Each skill calls the X Pilot API or the remote MCP server
 | Skill | What it does |
 | --- | --- |
 | `xpilot-audio` | Find and preview X Pilot voices and produce spoken MP3 audio when the user requests narration, voiceover, or text-to-speech using X Pilot. |
-| `xpilot-avatar` | Find, create and inspect X Pilot digital humans from uploaded images or training videos when the user asks for an X Pilot presenter. |
+| `xpilot-avatar` | Find, create and inspect X Pilot digital humans from uploaded images or training videos, and synthesize talking-presenter videos with them from text or audio, when the user asks for an X Pilot presenter or avatar video. |
 | `xpilot-course-video` | Create or revise educational and explainer videos with X Pilot, including the brief, style and duration choice, source uploads, optional outline review, asynchronous polling, preview handoff and MP4 export. |
 
 ## Install

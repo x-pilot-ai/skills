@@ -123,7 +123,7 @@ Conversation `status` and `next_action` follow its latest message. Poll at least
 
 ## Renders
 
-`POST .../renders` needs `Idempotency-Key` and accepts `message_id` (default: latest message with a preview) and `force` (re-export). The same key returns the same render; a different body with the same key returns 409. Without a preview it returns 409 `preview_not_ready`. Render `status`: queued, running, completed, failed, superseded. Poll `GET .../renders/{render_id}` until `video_url` is set.
+`POST .../renders` needs `Idempotency-Key` and accepts `message_id` (default: latest message with a preview) and `force` (re-export). The same key returns the same render; a different body with the same key returns 409. Without a preview it returns 409 `preview_not_ready`. Render `status`: queued, running, completed, failed, superseded. Render responses include `progress`: a number from 0 to 100 when the renderer reports it, `null` when temporarily unavailable, and 100 when completed. Poll `GET .../renders/{render_id}`, report real progress without estimating it, and finish when `video_url` is set.
 
 ## Idempotency
 
@@ -137,6 +137,6 @@ The agent creates one UUID per new operation and reuses it only to retry the sam
 - Brand kits: list_brand_kits, get_brand_kit, create_brand_kit, update_brand_kit, delete_brand_kit
 - Assets: list_assets (upload via REST `POST /v1/assets`)
 - Voices: list_voices, get_voice, generate_audio, clone_voice, delete_voice
-- Avatars: list_avatars, get_avatar, create_avatar, delete_avatar
+- Avatars: list_avatars, get_avatar, create_avatar, delete_avatar, create_avatar_video, get_avatar_video
 
 MCP arguments mirror the REST bodies. Invalid arguments return JSON-RPC -32602 with the failing path.
